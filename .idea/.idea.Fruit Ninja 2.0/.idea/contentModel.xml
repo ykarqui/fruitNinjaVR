@@ -697,6 +697,7 @@
           <e p="Data.cs" t="Include" />
           <e p="EndGame.cs" t="Include" />
           <e p="Fruit.cs" t="Include" />
+          <e p="FruitNinjaEnum.cs" t="Include" />
           <e p="GameSettings.cs" t="Include" />
           <e p="Katana.cs" t="Include" />
           <e p="Life.cs" t="Include" />

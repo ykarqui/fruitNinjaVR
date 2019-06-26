@@ -26,9 +26,10 @@ public class Fruit : MonoBehaviour
     {
         Debug.Log("Obj Trigger: " + col.gameObject.name);
         // We hit a watermelon/fruit
-        if (col.CompareTag("Katana") /*&& OVRInput.Get(OVRInput.Button.One)*/)
+        if (col.CompareTag("DeadZone") /*&& OVRInput.Get(OVRInput.Button.One)*/)
         {
             Score.scoreValue = Score.scoreValue + fruitScore;
+            Debug.Log("Score: " + Score.scoreValue);
             Vector3 direction = (col.transform.position - transform.position).normalized;
             Quaternion rotation = Quaternion.LookRotation(direction);
             Debug.Log("We hit a watermelon");

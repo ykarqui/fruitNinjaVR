@@ -357,6 +357,7 @@
     <Compile Include="Assets\Scripts\Data.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\Fruit.cs" />
+    <Compile Include="Assets\Scripts\FruitNinjaEnum.cs" />
     <Compile Include="Assets\Scripts\GameSettings.cs" />
     <Compile Include="Assets\Scripts\Katana.cs" />
     <Compile Include="Assets\Scripts\Life.cs" />

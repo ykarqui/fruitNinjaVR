@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -12,10 +13,19 @@ public class Spawner : MonoBehaviour
     // random generator
     public float minDelay = 0.1f;
     public float maxDelay = 1f;
+    public float bombRate;
+    public float watermelonRate;
+    public float appleRate;
+    public float orangeRate;
+    public float kiwiRate;
     
+    // Array of Rates
+    [NonSerialized] private List<float> rates = new List<float>();
+    [NonSerialized] private List<int> indexes = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
+        orderRates();
         StartCoroutine(Spawn());
     }
 
@@ -60,28 +70,75 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    int getIndexValue()
+    void orderRates()
     {
-        float val = Random.value;
-        if (val <= 0.2f)
+        rates.Add(fixRate(watermelonRate));
+        indexes.Add(1);
+        rates.Add(fixRate(appleRate));
+        indexes.Add(2);
+        rates.Add(fixRate(orangeRate));
+        indexes.Add(3);
+        rates.Add(fixRate(kiwiRate));
+        indexes.Add(4);
+        
+        float temp = 0f;
+        int temp2 = 0;
+        Debug.Log("Start SORT");
+        for (int sort = 0; sort < rates.Count - 1; sort++)
+        {
+            if (rates[sort] > rates[sort + 1])
+            {
+                temp = rates[sort + 1];
+                temp2 = indexes[sort + 1];
+                rates[sort + 1] = rates[sort];
+                rates[sort] = temp;
+                indexes[sort + 1] = indexes[sort];
+                indexes[sort] = temp2;
+            }
+        }
+    }
+
+    float fixRate(float fruit)
+    {
+        float max = 1f - bombRate;
+        if (fruit == 0)
         {
             return 0;
         }
-        else // 0.2 y 1
+        else
         {
-            if (val<=0.7f)
+            return 1f - (fruit * max);
+        }
+    }
+
+    int getIndexValue()
+    {
+        float val = Random.value;
+        if (val <= bombRate)
+        {
+            return 0;
+        }
+        else // bombRate y 1
+        {
+            if (val<=rates[0])
             {
-                return 1;
+                return indexes[0];
             }
-            else if (val<=0.9f)
+            if (val<=rates[1])
             {
-                return 2;
+                return indexes[1];
             }
-            else
+            if (val<=rates[2])
             {
-                return 3;
+                return indexes[2];
+            }
+            if (val <= rates[3])
+            {
+                return indexes[3];
             }
         }
+
+        return 1;
     }
 
 }

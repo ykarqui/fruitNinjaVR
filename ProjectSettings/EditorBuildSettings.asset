@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 7c900ad4468c17c4ca4b5a8515c106fe
   - enabled: 1
-    path: Assets/Scenes/Game VR.unity
+    path: Assets/Scenes/Game Lvl 1.unity
     guid: f52961fb6c5fd4d48a95ab6a4e6e6fd3
   - enabled: 1
     path: Assets/Scenes/EndGame.unity
