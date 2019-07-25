@@ -17,7 +17,10 @@ namespace DefaultNamespace
         
         private void Update()
         {
-            slider.value = comboValue;
+            if (comboValue<=1f)
+            {
+                slider.value = comboValue;
+            }
             if (slider.value <= 0.1)
             {
                 Debug.Log("You lost a life cause combo bar is empty");

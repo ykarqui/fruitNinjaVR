@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fruitSlicePrefab: {fileID: 8627230156395879906, guid: ca05a4d9e03cfc240aef1c9a84d3c9d6,
     type: 3}
-  startForce: 14
+  startForce: 13
   fruitScore: 30
 --- !u!54 &3017685233955918487
 Rigidbody:
@@ -146,7 +146,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 11
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64258958651792780, guid: 12a01eade5556254c973a9fa43332ed4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 12a01eade5556254c973a9fa43332ed4, type: 3}
 --- !u!4 &1530915954430976573 stripped
 Transform:

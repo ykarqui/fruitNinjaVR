@@ -6,9 +6,10 @@ using TMPro;
 public class Life : MonoBehaviour
 {
     [SerializeField]public TextMeshPro LifeLabel = null;
-    public static int lifeValue = 3;
+    public static int lifeValue;
     private void Start()
     {
+        lifeValue = 3;
         LifeLabel.text = "Lifes: " + lifeValue;
     }
     
@@ -16,7 +17,8 @@ public class Life : MonoBehaviour
     {
         if (lifeValue <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("currentscore", Score.scoreValue);
+            SceneManager.LoadScene(4);
         }
         LifeLabel.text = "Lifes: " + lifeValue;
     }

@@ -46,7 +46,7 @@ public class Spawner : MonoBehaviour
             Transform spawnPoint = spawnPoints[spawnIndex];
             // spawn obj
             var rotPosition = spawnPoint.rotation.eulerAngles;
-            rotPosition.z = rotPosition.z + Random.Range(-5f, 5f);
+            rotPosition.z = rotPosition.z + Random.Range(-3f, 3f);
             GameObject spawnedFruit = Instantiate(prefab[getIndexValue()], spawnPoint.position, Quaternion.Euler(rotPosition));
             Destroy(spawnedFruit, 5f);
             switch (spawnIndex)
@@ -64,7 +64,7 @@ public class Spawner : MonoBehaviour
             spawnPoint = spawnPoints[spawnIndex];
             // spawn obj
             rotPosition = spawnPoint.rotation.eulerAngles;
-            rotPosition.z = rotPosition.z + Random.Range(-5f, 5f);
+            rotPosition.z = rotPosition.z + Random.Range(-3f, 3f);
             spawnedFruit = Instantiate(prefab[getIndexValue()], spawnPoint.position, Quaternion.Euler(rotPosition));
             Destroy(spawnedFruit, 5f);
         }

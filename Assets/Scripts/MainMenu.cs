@@ -9,7 +9,7 @@ public class MainMenu : MonoBehaviour
     {
         Score.scoreValue = 0;
         Life.lifeValue = 3;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void QuitGame()

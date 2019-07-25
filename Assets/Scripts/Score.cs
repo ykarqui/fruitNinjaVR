@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 public class Score : MonoBehaviour
 {
     [SerializeField]public TextMeshPro ScoreLabel = null;
-    public static int scoreValue = 0;
+    public static int scoreValue;
     public int pointsToUp;
     private void Start()
     {
+        scoreValue = 0;
         ScoreLabel.text = "Score: " + scoreValue;
     }
     

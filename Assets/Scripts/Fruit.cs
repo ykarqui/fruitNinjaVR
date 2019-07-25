@@ -26,10 +26,12 @@ public class Fruit : MonoBehaviour
     {
         Debug.Log("Obj Trigger: " + col.gameObject.name);
         // We hit a watermelon/fruit
-        if (col.CompareTag("DeadZone") /*&& OVRInput.Get(OVRInput.Button.One)*/)
+        if ((col.CompareTag("KatanaRight") && OVRInput.Get(OVRInput.Button.One)) ||
+            (col.CompareTag("KatanaLeft") && OVRInput.Get(OVRInput.Button.Three)))
         {
             Score.scoreValue = Score.scoreValue + fruitScore;
             Debug.Log("Score: " + Score.scoreValue);
+            ComboBar.comboValue += 0.05f;
             Vector3 direction = (col.transform.position - transform.position).normalized;
             Quaternion rotation = Quaternion.LookRotation(direction);
             Debug.Log("We hit a watermelon");
@@ -39,17 +41,18 @@ public class Fruit : MonoBehaviour
             Destroy(slicedFruit, 3f);
 
         }
-        /*else if (col.CompareTag("DeadZone"))
+        else if (col.CompareTag("DeadZone"))
         {
             // initialGAP--;
-
-            // Score.scoreValue = Score.scoreValue - 20;
-            Debug.Log("Pega en el dead zone");
-            ComboBar.comboValue -= 0.1f;
-            if (Score.scoreValue == -1110)
+            if (Score.scoreValue > 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                Score.scoreValue = Score.scoreValue - 20;
             }
-        }*/
+            if (Score.scoreValue < 0)
+            {
+                Score.scoreValue = 0;
+            }
+            ComboBar.comboValue -= 0.05f;
+        }
     }
 }

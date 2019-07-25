@@ -32,18 +32,18 @@ public class Bomb : MonoBehaviour
             Vector3 direction = (col.transform.position - transform.position).normalized;
             Quaternion rotation = Quaternion.LookRotation(direction);
             Debug.Log("We hit a bomb");
-            // Life.lifeValue = Life.lifeValue - 1;
+            Life.lifeValue = Life.lifeValue - 1;
             GameObject slicedBomb = Instantiate(SlicePrefab, transform.position, rotation);
             Destroy(gameObject);
             //audio.
             audio.Play();
             Destroy(slicedBomb, 1f);
         }
-        else if (col.CompareTag("DeadZone"))
+        /*else if (col.CompareTag("DeadZone"))
         {
             audio.Play();
-            // Score.scoreValue = Score.scoreValue - 20;
+            Score.scoreValue = Score.scoreValue - 20;
             Debug.Log("BOMBA");
-        }
+        }*/
     }
 }
